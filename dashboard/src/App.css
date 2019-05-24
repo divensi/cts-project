@@ -1,0 +1,10 @@
+.App {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 600px);
+
+  grid-gap: 15px;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #333;
+}
