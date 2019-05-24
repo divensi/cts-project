@@ -1,8 +1,8 @@
 import serial, time, glob, os
 from datetime import datetime
 
-#ser = serial.Serial('/dev/ttyACM0', 9600) # porta no Arduino
-ser = serial.Serial('/dev/ttyS4', 9600) # teste no WSL
+ser = serial.Serial('/dev/ttyACM0', 9600) # porta no Arduino
+#ser = serial.Serial('/dev/ttyS4', 9600) # teste no WSL
 
 while 1:
     serial_line = ser.readline().decode("utf-8")
