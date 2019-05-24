@@ -11,7 +11,7 @@ import Corrente from './Graficos/Corrente';
 
 class App extends Component {
   state = {
-    dados: null,
+    dados: [],
     carregando: true
   }
 
@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   carregar = () => {
-    
+
     Papa.parse("/serial.csv", {
       download: true,
       complete: results => {
@@ -49,10 +49,6 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.carregando) {
-      return <Loading />
-    }
-
     return (
       <div className="App">
         <Temperatura dados={this.state.dados} />
