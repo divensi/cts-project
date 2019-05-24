@@ -1,39 +1,28 @@
-#include "EmonLib.h"
+#include "ACS712.h"
  
-EnergyMonitor SCT013;
- //link da biblioteca https://github.com/openenergymonitor/EmonLib
-int pinSCT = A0;   //Pino analógico conectado ao SCT-013
+// Estou usando ACS de 30A. Mude para o modelo que está usando. Valores possíveis: 5,20 e 30
+// Sensor ligado na porta analópgica A0
+ACS712 sensor(ACS712_30A, A0);
  
-int tensao = 127;
-int potencia;
- 
-void setup()
-{
-    SCT013.current(pinSCT, 6.0606);
- 
-    Serial.begin(9600);
+void setup() {
+  // É necessário calibrar o sensor antes de usar a primeira vez com o método abaixo
+  Serial.begin(9600);
+  sensor.calibrate();
 }
  
-void loop()
-{
-    double Irms = SCT013.calcIrms(1480);   // Calcula o valor da Corrente
-    
-    potencia = Irms * tensao;          // Calcula o valor da Potencia Instantanea    
+void loop() {
+  // A frequência da corrente alternada no Brasil é 60 Hz. Mude caso necessário
+  // A voltagem, no meu caso é 127
+  delay(1000);
+  float V = 127;
+  float I = sensor.getCurrentAC(60);
+  float P = V * I;
+// 
+//  Serial.println(String("Corrente = ") + I + " A");
+//  Serial.println(String("Potência  = ") + P + " Watts");
+ I = I ;
  
-    Serial.print("Corrente = ");
-    Serial.print(Irms);
-    Serial.println(" A");
-    
-    Serial.print("Potencia = ");
-    Serial.print(potencia);
-    Serial.println(" W");
-   
-    delay(500);
+ P = P ;
  
-    Serial.print(".");
-    delay(500);
-    Serial.print(".");
-    delay(500);
-    Serial.println(".");
-    delay(500);
+ Serial.println(String("")+ (I) + String(",") + P);
 }
