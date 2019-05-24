@@ -12,7 +12,7 @@ while 1:
     print(print_line) # If using Python 2.x use: print serial_line
     # Do some other work on the data
     
-    with open('serial.csv', 'a') as file:
+    with open('../dashboard/public/serial.csv', 'a') as file:
         file.write(print_line)
 
     time.sleep(1) # sleep 5 minutes
