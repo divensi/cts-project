@@ -1,0 +1,12 @@
+.linha {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.linha h3 {
+  font-size: 25px;
+  margin: 15px 0;
+}

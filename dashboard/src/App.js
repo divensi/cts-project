@@ -7,6 +7,7 @@ import Loading from './Loading';
 import Temperatura from './Graficos/Temperatura';
 import Potencia from './Graficos/Potencia';
 import Corrente from './Graficos/Corrente';
+import DadosAtuais from './Graficos/DadosAtuais';
 
 
 class App extends Component {
@@ -51,6 +52,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <DadosAtuais dados={this.state.dados} />
         <Temperatura dados={this.state.dados} />
         <Potencia dados={this.state.dados} />
         <Corrente dados={this.state.dados} />

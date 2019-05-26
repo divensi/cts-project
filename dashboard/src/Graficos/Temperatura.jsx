@@ -26,13 +26,13 @@ const Temperatura = ({dados}) => {
         data={{
           datasets:[
             {
-              label: "Temperatura 1",
+              label: "Temperatura Interna",
               data: temp1,
               borderColor: "#3e95cd",
               fill: false
             },
             {
-              label: "Temperatura 2",
+              label: "Temperatura Externa",
               data: temp2,
               borderColor: "#8e5ea2",
               fill: false
